@@ -1,0 +1,1705 @@
+[
+    {
+        "id": "87cd03ebd1aa6efe",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0319726d8850e11c",
+        "type": "homekit-service",
+        "z": "87cd03ebd1aa6efe",
+        "isParent": true,
+        "hostType": "0",
+        "bridge": "c710ffcc64515e44",
+        "accessoryId": "",
+        "parentService": "",
+        "name": "BedJet Control",
+        "serviceName": "Thermostat",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.4.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.4.3",
+        "hardwareRev": "1.4.3",
+        "softwareRev": "1.4.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{    \"TargetHeatingCoolingState\": {\"validValues\": [0,1,2]}, \"CurrentHeatingCoolingState\": {\"validValues\": [0,1,2]}}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [],
+            [
+                "14da5991cc1fb81a",
+                "01135a085851ca85"
+            ]
+        ]
+    },
+    {
+        "id": "e369a4ede1e4a5c5",
+        "type": "homekit-service",
+        "z": "87cd03ebd1aa6efe",
+        "isParent": false,
+        "hostType": "0",
+        "bridge": "4a2a4fc162440a41",
+        "accessoryId": "",
+        "parentService": "3de23b51e08dbdab",
+        "name": "Fan",
+        "serviceName": "Fan",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.4.2",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.4.2",
+        "hardwareRev": "1.4.2",
+        "softwareRev": "1.4.2",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{\"RotationSpeed\":{\"minValue\":0,\"maxValue\":100}}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 620,
+        "wires": [
+            [],
+            [
+                "58d9e978a5fa213e"
+            ]
+        ]
+    },
+    {
+        "id": "6c50f9763ccad725",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"On\":1}",
+        "payloadType": "json",
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "e369a4ede1e4a5c5"
+            ]
+        ]
+    },
+    {
+        "id": "991f6b3d79a5495b",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"On\":0}",
+        "payloadType": "json",
+        "x": 430,
+        "y": 640,
+        "wires": [
+            [
+                "e369a4ede1e4a5c5"
+            ]
+        ]
+    },
+    {
+        "id": "c01986f7648bedf7",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Clockwise",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"RotationDirection\":0}",
+        "payloadType": "json",
+        "x": 420,
+        "y": 700,
+        "wires": [
+            [
+                "e369a4ede1e4a5c5"
+            ]
+        ]
+    },
+    {
+        "id": "d656f20e2d1f3a91",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Counter Clockwise",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"RotationDirection\":1}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 740,
+        "wires": [
+            [
+                "e369a4ede1e4a5c5"
+            ]
+        ]
+    },
+    {
+        "id": "1ae9823b0d01e8f3",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "RotationSpeed 50%",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"RotationSpeed\":50}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 800,
+        "wires": [
+            [
+                "e369a4ede1e4a5c5"
+            ]
+        ]
+    },
+    {
+        "id": "ef6b830f02549d15",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "RotationSpeed 100%",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"RotationSpeed\":100}",
+        "payloadType": "json",
+        "x": 380,
+        "y": 840,
+        "wires": [
+            [
+                "e369a4ede1e4a5c5"
+            ]
+        ]
+    },
+    {
+        "id": "bc5e98fbe482823b",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1ed4cf72bdc0e2eb",
+        "type": "mqtt out",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Control",
+        "topic": "bedjet/BEDJET-1A3A/control",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d74720775cafeb8",
+        "x": 760,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "5aa405da2562aad7",
+        "type": "mqtt out",
+        "z": "87cd03ebd1aa6efe",
+        "name": "SetMode",
+        "topic": "bedjet/BEDJET-1A3A/setmode",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d74720775cafeb8",
+        "x": 760,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "303131aa89955e8a",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "01135a085851ca85",
+        "type": "switch",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "TargetHeatingCoolingState",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "TargetTemperature",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "7555dc62e6c465b4"
+            ],
+            [
+                "a823dafdde1841fa",
+                "050d31ea37085f74"
+            ]
+        ]
+    },
+    {
+        "id": "19ea54009b3c86bc",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload.TargetHeatingCoolingState",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "num",
+                "to": "heat",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload.TargetHeatingCoolingState",
+                "pt": "msg",
+                "from": "2",
+                "fromt": "num",
+                "to": "cool",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload.TargetHeatingCoolingState",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "num",
+                "to": "off",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.TargetHeatingCoolingState",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "5aa405da2562aad7",
+                "55f2b350456304c4"
+            ]
+        ]
+    },
+    {
+        "id": "55f2b350456304c4",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c360e34cd06ccff6",
+        "type": "mqtt in",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Mode",
+        "topic": "bedjet/BEDJET-1A3A/mode",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1d74720775cafeb8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "fce351959e1a75d9"
+            ]
+        ]
+    },
+    {
+        "id": "652e07741412fe0d",
+        "type": "mqtt in",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Fan",
+        "topic": "bedjet/BEDJET-1A3A/fan",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1d74720775cafeb8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "330ac4bd3521f92c",
+                "327c345507f318a4"
+            ]
+        ]
+    },
+    {
+        "id": "e5d2167849e0643b",
+        "type": "mqtt in",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Temp_actual",
+        "topic": "bedjet/BEDJET-1A3A/temp_actual",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1d74720775cafeb8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "31de03461795cdea"
+            ]
+        ]
+    },
+    {
+        "id": "e45c297f7ccdf9e2",
+        "type": "mqtt in",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Temp_setpoint",
+        "topic": "bedjet/BEDJET-1A3A/temp_setpoint",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1d74720775cafeb8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "39a1cc2419e7e382"
+            ]
+        ]
+    },
+    {
+        "id": "108899a636ca0ee3",
+        "type": "mqtt in",
+        "z": "87cd03ebd1aa6efe",
+        "name": "time",
+        "topic": "bedjet/BEDJET-1A3A/time",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1d74720775cafeb8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 460,
+        "wires": [
+            [
+                "930cfa67b73ee1b1"
+            ]
+        ]
+    },
+    {
+        "id": "8e30057c14ee28f8",
+        "type": "mqtt in",
+        "z": "87cd03ebd1aa6efe",
+        "name": "timestring",
+        "topic": "bedjet/BEDJET-1A3A/timestring",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1d74720775cafeb8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 500,
+        "wires": [
+            [
+                "80daba12e7b489c0"
+            ]
+        ]
+    },
+    {
+        "id": "7f94b49946654494",
+        "type": "function",
+        "z": "87cd03ebd1aa6efe",
+        "name": "F to C",
+        "func": "var val;\nvar command;\nval = msg.payload; f = (val - 32) * (5/9);\n//msg.payload = parseFloat(f).toFixed(1) + \" °C\";\n//msg.payload = f;\nmsg.payload = {\"CurrentTemperature\": f};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 380,
+        "wires": [
+            [
+                "b0064871afd30886",
+                "0319726d8850e11c"
+            ]
+        ]
+    },
+    {
+        "id": "a823dafdde1841fa",
+        "type": "function",
+        "z": "87cd03ebd1aa6efe",
+        "name": "C to F",
+        "func": "var val;\nval = msg.payload.TargetTemperature; f = (val*(9/5)) + 32;\n//msg.payload = parseFloat(f).toFixed(1) + \" °F\";\n//Math.round(f);\nmsg.payload = {\"TargetTemperature\": Math.round(f)};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 260,
+        "wires": [
+            [
+                "1f2a9dfca9dcf459",
+                "17ad5c94cd3b5131"
+            ]
+        ]
+    },
+    {
+        "id": "b0064871afd30886",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "31de03461795cdea",
+        "type": "rbe",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "7f94b49946654494"
+            ]
+        ]
+    },
+    {
+        "id": "22fe3bdab7a18d85",
+        "type": "function",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "var Temperature = global.get(\"CurrentTemperature\");\n\nreturn Temperature;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 520,
+        "wires": [
+            [
+                "202a27ecf90afe95"
+            ]
+        ]
+    },
+    {
+        "id": "de44da09a56ba613",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "80daba12e7b489c0",
+        "type": "rbe",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 330,
+        "y": 500,
+        "wires": [
+            [
+                "de44da09a56ba613"
+            ]
+        ]
+    },
+    {
+        "id": "202a27ecf90afe95",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6b7b9785547939b1",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 480,
+        "y": 540,
+        "wires": [
+            [
+                "22fe3bdab7a18d85"
+            ]
+        ]
+    },
+    {
+        "id": "1f2a9dfca9dcf459",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.TargetTemperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "5c38ac18935e194a",
+                "a98bc007b8897225"
+            ]
+        ]
+    },
+    {
+        "id": "a98bc007b8897225",
+        "type": "mqtt out",
+        "z": "87cd03ebd1aa6efe",
+        "name": "set_temp",
+        "topic": "bedjet/BEDJET-1A3A/set_temp",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d74720775cafeb8",
+        "x": 760,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ff50b376bdfdbecc",
+        "type": "mqtt out",
+        "z": "87cd03ebd1aa6efe",
+        "name": "set_fan",
+        "topic": "bedjet/BEDJET-1A3A/set_fan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d74720775cafeb8",
+        "x": 840,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "5c38ac18935e194a",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "39a1cc2419e7e382",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "17ad5c94cd3b5131",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "050d31ea37085f74",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "330ac4bd3521f92c",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "58d9e978a5fa213e",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.RotationSpeed",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 680,
+        "wires": [
+            [
+                "bc5e98fbe482823b",
+                "ff50b376bdfdbecc"
+            ]
+        ]
+    },
+    {
+        "id": "239d4166f99cd0b4",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "930cfa67b73ee1b1",
+        "type": "rbe",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "64b1bad8a6c75f4f"
+            ]
+        ]
+    },
+    {
+        "id": "868f58360fedadef",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "64b1bad8a6c75f4f",
+        "type": "function",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "var str = msg.payload;\nvar res = parseInt (str);\nmsg.payload = {\"RemainingDuration\": res};\n//msg.payload = res;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 460,
+        "wires": [
+            [
+                "239d4166f99cd0b4",
+                "2bfedddcef38a404"
+            ]
+        ]
+    },
+    {
+        "id": "c2819c040935641d",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "fce351959e1a75d9",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "cool",
+                "fromt": "str",
+                "to": "{\"CurrentHeatingCoolingState\":2}",
+                "tot": "json"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "heat",
+                "fromt": "str",
+                "to": "{\"CurrentHeatingCoolingState\":1}",
+                "tot": "json"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "off",
+                "fromt": "str",
+                "to": "{\"CurrentHeatingCoolingState\":0}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "b9767c26291f7a54",
+                "7f1ba114b15f5585",
+                "25e01c68754233aa",
+                "580dd226d9419d3d"
+            ]
+        ]
+    },
+    {
+        "id": "b9767c26291f7a54",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2303f57c17988333",
+        "type": "mqtt out",
+        "z": "87cd03ebd1aa6efe",
+        "name": "set_time",
+        "topic": "bedjet/BEDJET-1A3A/set_time",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d74720775cafeb8",
+        "x": 1040,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6f2683a08574f9f9",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"SetDuration\":3600}",
+        "payloadType": "json",
+        "x": 770,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "327c345507f318a4",
+        "type": "function",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Set Current Fan Speed",
+        "func": "var str = msg.payload;\nvar res = parseInt (str) + 5;\nmsg.payload = {\"RotationSpeed\":res};\n//msg.payload = res;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 520,
+        "wires": [
+            [
+                "b738fd2fada84b6e"
+            ]
+        ]
+    },
+    {
+        "id": "0e872a3c3f49c5db",
+        "type": "function",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "var val;\nvar command;\nval = msg.payload.TargetTemperature; f = (val*(9/5)) + 32; t = f * 10;\n//msg.payload = parseFloat(f).toFixed(1) + \" °C\";\n//msg.payload = f;\nmsg.payload = Math.round(t);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46e8cfcdeecbb270",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1000",
+        "payloadType": "num",
+        "x": 990,
+        "y": 420,
+        "wires": [
+            [
+                "2303f57c17988333"
+            ]
+        ]
+    },
+    {
+        "id": "6734f153b4830bcd",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "2ea159169935cadb",
+        "type": "homekit-service",
+        "z": "87cd03ebd1aa6efe",
+        "isParent": false,
+        "hostType": "0",
+        "bridge": "",
+        "accessoryId": "",
+        "parentService": "3de23b51e08dbdab",
+        "name": "Bedjet Timer",
+        "serviceName": "Thermostat",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.4.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.4.3",
+        "hardwareRev": "1.4.3",
+        "softwareRev": "1.4.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{    \"TargetHeatingCoolingState\": {\"validValues\": [2,2]}, \"CurrentHeatingCoolingState\": {\"validValues\": [2,2]}}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 740,
+        "wires": [
+            [
+                "89e7fb3945a78a49"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "89e7fb3945a78a49",
+        "type": "switch",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "TargetHeatingCoolingState",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "TargetTemperature",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 740,
+        "wires": [
+            [],
+            [
+                "156329f9b4a9221d"
+            ]
+        ]
+    },
+    {
+        "id": "156329f9b4a9221d",
+        "type": "range",
+        "z": "87cd03ebd1aa6efe",
+        "minin": "10",
+        "maxin": "37.8",
+        "minout": "1",
+        "maxout": "720",
+        "action": "scale",
+        "round": true,
+        "property": "payload.TargetTemperature",
+        "name": "Convert to Minutes",
+        "x": 1170,
+        "y": 740,
+        "wires": [
+            [
+                "237c01308bd8738e"
+            ]
+        ]
+    },
+    {
+        "id": "237c01308bd8738e",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.TargetTemperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1340,
+        "y": 680,
+        "wires": [
+            [
+                "c2819c040935641d",
+                "2303f57c17988333"
+            ]
+        ]
+    },
+    {
+        "id": "2bfedddcef38a404",
+        "type": "range",
+        "z": "87cd03ebd1aa6efe",
+        "minin": "0",
+        "maxin": "43200",
+        "minout": "10",
+        "maxout": "37.8",
+        "action": "scale",
+        "round": true,
+        "property": "payload.RemainingDuration",
+        "name": "Convert to Minutes",
+        "x": 690,
+        "y": 840,
+        "wires": [
+            [
+                "a33ff035aa698a2a"
+            ]
+        ]
+    },
+    {
+        "id": "a33ff035aa698a2a",
+        "type": "change",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.CurrentTemperature",
+                "pt": "msg",
+                "to": "payload.RemainingDuration",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.RemainingDuration",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 800,
+        "wires": [
+            [
+                "6734f153b4830bcd",
+                "2ea159169935cadb"
+            ]
+        ]
+    },
+    {
+        "id": "7f1ba114b15f5585",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 210,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "096ea1416992fc33",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"TargetHeatingCoolingState\":0}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "0319726d8850e11c"
+            ]
+        ]
+    },
+    {
+        "id": "b738fd2fada84b6e",
+        "type": "delay",
+        "z": "87cd03ebd1aa6efe",
+        "name": "Delay",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 600,
+        "wires": [
+            [
+                "2ac1c98459f30c7b"
+            ]
+        ]
+    },
+    {
+        "id": "fb094651131379cd",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2ac1c98459f30c7b",
+        "type": "rbe",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1110,
+        "y": 660,
+        "wires": [
+            [
+                "fb094651131379cd"
+            ]
+        ]
+    },
+    {
+        "id": "25e01c68754233aa",
+        "type": "link out",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "a38fa5ea1b995d46"
+        ],
+        "x": 645,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ec1ccc41feb0ac8f",
+        "type": "link in",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "links": [
+            "74a42e62442579b3"
+        ],
+        "x": 105,
+        "y": 280,
+        "wires": [
+            [
+                "0319726d8850e11c"
+            ]
+        ]
+    },
+    {
+        "id": "14da5991cc1fb81a",
+        "type": "debug",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0447032a03c3a180",
+        "type": "inject",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"CurrentHeatingCoolingState\":1}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 940,
+        "wires": [
+            [
+                "0319726d8850e11c"
+            ]
+        ]
+    },
+    {
+        "id": "7555dc62e6c465b4",
+        "type": "msg-resend",
+        "z": "87cd03ebd1aa6efe",
+        "interval": "1",
+        "intervalUnit": "secs",
+        "maximum": "4",
+        "bytopic": false,
+        "clone": false,
+        "firstDelayed": false,
+        "addCounters": false,
+        "waitForResend": false,
+        "highRate": false,
+        "outputCountField": "",
+        "outputMaxField": "",
+        "name": "",
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "19ea54009b3c86bc"
+            ]
+        ]
+    },
+    {
+        "id": "580dd226d9419d3d",
+        "type": "rbe",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1190,
+        "y": 300,
+        "wires": [
+            [
+                "0319726d8850e11c"
+            ]
+        ]
+    },
+    {
+        "id": "79ebfa7eb74a28dc",
+        "type": "throttle",
+        "z": "87cd03ebd1aa6efe",
+        "name": "",
+        "throttleType": "time",
+        "timeLimit": "100",
+        "timeLimitType": "milliseconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 1340,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c710ffcc64515e44",
+        "type": "homekit-bridge",
+        "bridgeName": "BEDJET",
+        "pinCode": "247-08-355",
+        "port": "",
+        "advertiser": "bonjour-hap",
+        "allowInsecureRequest": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.4.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.4.3",
+        "hardwareRev": "1.4.3",
+        "softwareRev": "1.4.3",
+        "customMdnsConfig": false,
+        "mdnsMulticast": true,
+        "mdnsInterface": "",
+        "mdnsPort": "",
+        "mdnsIp": "",
+        "mdnsTtl": "",
+        "mdnsLoopback": true,
+        "mdnsReuseAddr": true,
+        "allowMessagePassthrough": true
+    },
+    {
+        "id": "4a2a4fc162440a41",
+        "type": "homekit-bridge",
+        "d": true,
+        "bridgeName": "Bridge Node-RED",
+        "pinCode": "605-37-162",
+        "port": "",
+        "advertiser": "bonjour-hap",
+        "allowInsecureRequest": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.4.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.4.3",
+        "hardwareRev": "1.4.3",
+        "softwareRev": "1.4.3",
+        "customMdnsConfig": false,
+        "mdnsMulticast": true,
+        "mdnsInterface": "",
+        "mdnsPort": "",
+        "mdnsIp": "",
+        "mdnsTtl": "",
+        "mdnsLoopback": true,
+        "mdnsReuseAddr": true,
+        "allowMessagePassthrough": true
+    },
+    {
+        "id": "1d74720775cafeb8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
