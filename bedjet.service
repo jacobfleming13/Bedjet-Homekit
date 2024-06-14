@@ -1,0 +1,12 @@
+[Unit]
+Description=Bedjet
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/path/to/python3 /path/to/Home-Assistant-Bedjet/bedjet.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
